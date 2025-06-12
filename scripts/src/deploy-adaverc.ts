@@ -10,6 +10,7 @@ import {
 } from '@lucid-evolution/lucid';
 import { getAddressDetails } from '@lucid-evolution/utils';
 import { validatorToAddress } from '@lucid-evolution/utils';
+import { Network } from '@lucid-evolution/core-types';
 import * as dotenv from 'dotenv';
 
 // Load environment variables
@@ -81,14 +82,30 @@ function loadValidators() {
   };
 }
 
+// Map config network to lucid network
+function configNetworkToLucidNetwork(configNetwork: 'Preview' | 'Preprod' | 'Mainnet'): Network {
+  switch (configNetwork) {
+    case 'Preview':
+      return 'Preview';
+    case 'Preprod':
+      return 'Preprod';
+    case 'Mainnet':
+      return 'Mainnet';
+    default:
+      throw new Error(`Unsupported network: ${configNetwork}`);
+  }
+}
+
 // Initialize Lucid with Blockfrost provider
 async function initLucid(config: Config): Promise<LucidEvolution> {
+  const network = configNetworkToLucidNetwork(config.network);
+  
   const lucid = await Lucid(
     new Blockfrost(
       config.blockfrostUrl,
       config.blockfrostProjectId
     ),
-    'Preview'
+    network
   );
   
   // Use the correct method to select wallet from mnemonic
@@ -147,8 +164,8 @@ async function deployAdavercRegistry(): Promise<DeploymentOutput> {
     const lucid = await initLucid(config);
     const adavercValidator = createValidator(validators.compiledCode);
     
-    // Get network from config
-    const network = lucid.config().network;
+    // Get network from config - this is the fix for the original error
+    const network = configNetworkToLucidNetwork(config.network);
     
     // Use the validatorToAddress function with the correct parameters
     const contractAddress = validatorToAddress(
