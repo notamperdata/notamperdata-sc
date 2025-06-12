@@ -1,21 +1,35 @@
 {
-  "name": "scripts",
+  "name": "adaverc-deployment-scripts",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Deployment scripts for Adaverc smart contracts",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts",
-  "build": "tsc",
-  "run": "node dist/index.js"
+    "build": "tsc",
+    "deploy": "ts-node src/deploy-adaverc.ts",
+    "deploy:preview": "CARDANO_NETWORK=Preview ts-node src/deploy-adaverc.ts",
+    "deploy:preprod": "CARDANO_NETWORK=Preprod ts-node src/deploy-adaverc.ts",
+    "deploy:mainnet": "CARDANO_NETWORK=Mainnet ts-node src/deploy-adaverc.ts"
   },
-  "keywords": [],
+  "keywords": [
+    "cardano",
+    "plutus",
+    "smart-contracts",
+    "blockchain",
+    "deployment"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^24.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@lucid-evolution/core-types": "^0.1.22",
+    "@lucid-evolution/lucid": "^0.4.29",
+    "@lucid-evolution/utils": "^0.1.66",
+    "dotenv": "^16.5.0",
+    "lucid-cardano": "^0.10.11"
   }
 }
