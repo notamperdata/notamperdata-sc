@@ -8,7 +8,6 @@ import {
   TxHash,
   LucidEvolution
 } from '@lucid-evolution/lucid';
-import { getAddressDetails } from '@lucid-evolution/utils';
 import { validatorToAddress } from '@lucid-evolution/utils';
 import { Network } from '@lucid-evolution/core-types';
 import * as dotenv from 'dotenv';
@@ -112,20 +111,6 @@ async function initLucid(config: Config): Promise<LucidEvolution> {
   lucid.selectWallet.fromSeed(config.mnemonic);
   
   return lucid;
-}
-
-// Get verification key hash from a wallet
-async function getVerificationKeyHash(lucid: LucidEvolution): Promise<string> {
-  // IMPORTANT: Now using await since address() is asynchronous
-  const address = await lucid.wallet().address();
-  // Use the imported getAddressDetails function
-  const { paymentCredential } = getAddressDetails(address);
-  
-  if (!paymentCredential || paymentCredential.type !== 'Key') {
-    throw new Error('Payment credential not found or not of type Key');
-  }
-  
-  return paymentCredential.hash;
 }
 
 // Create a validator from compiled code
