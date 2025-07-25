@@ -1,17 +1,17 @@
-# Adaverc Smart Contract Documentation
+# notamperdata Smart Contract Documentation
 
 ## Overview
 
-The Adaverc smart contract (`adaverc_registry`) provides blockchain-based verification for Google Forms responses through immutable hash storage on the Cardano blockchain. The contract leverages Cardano's metadata capabilities and UTxO model to create verifiable proof of form response integrity while maintaining cost efficiency and extensibility for enterprise features.
+The notamperdata smart contract (`notamperdata_registry`) provides blockchain-based verification for Google Forms responses through immutable hash storage on the Cardano blockchain. The contract leverages Cardano's metadata capabilities and UTxO model to create verifiable proof of form response integrity while maintaining cost efficiency and extensibility for enterprise features.
 
 ## Contract Architecture
 
 ### Validator Implementation
 
-The `adaverc_registry` validator is implemented in Aiken and provides the foundation for blockchain-based form response verification:
+The `notamperdata_registry` validator is implemented in Aiken and provides the foundation for blockchain-based form response verification:
 
 ```aiken
-validator adaverc_registry {
+validator notamperdata_registry {
   spend(
     _datum: Option<Data>,
     _redeemer: Data,

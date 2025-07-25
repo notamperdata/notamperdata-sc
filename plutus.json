@@ -1,7 +1,7 @@
 {
   "preamble": {
-    "title": "ndigirigijohn/adaverc-sc",
-    "description": "Aiken contracts for project 'ndigirigijohn/adaverc-sc'",
+    "title": "ndigirigijohn/notamperdata-sc",
+    "description": "Aiken contracts for project 'ndigirigijohn/notamperdata-sc'",
     "version": "0.0.0",
     "plutusVersion": "v3",
     "compiler": {
@@ -12,7 +12,7 @@
   },
   "validators": [
     {
-      "title": "adaverc_registry.adaverc_registry.spend",
+      "title": "notamperdata_registry.notamperdata_registry.spend",
       "datum": {
         "title": "_datum",
         "schema": {
@@ -29,7 +29,7 @@
       "hash": "a2492486ed656e3fb854a2c240cf16055216c38ec94d166a533c5820"
     },
     {
-      "title": "adaverc_registry.adaverc_registry.else",
+      "title": "notamperdata_registry.notamperdata_registry.else",
       "redeemer": {
         "schema": {}
       },

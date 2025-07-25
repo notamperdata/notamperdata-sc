@@ -1,13 +1,13 @@
-name = "ndigirigijohn/adaverc-sc"
+name = "ndigirigijohn/notamperdata-sc"
 version = "0.0.0"
 compiler = "v1.1.15"
 plutus = "v3"
 license = "Apache-2.0"
-description = "Aiken contracts for project 'ndigirigijohn/adaverc-sc'"
+description = "Aiken contracts for project 'ndigirigijohn/notamperdata-sc'"
 
 [repository]
 user = "ndigirigijohn"
-project = "adaverc-sc"
+project = "notamperdata-sc"
 platform = "github"
 
 [[dependencies]]

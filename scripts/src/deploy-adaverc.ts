@@ -1,4 +1,4 @@
-// scripts/src/deploy-adaverc.ts
+// scripts/src/deploy-notamperdata.ts
 import * as fs from 'fs';
 import * as path from 'path';
 import { 
@@ -68,11 +68,11 @@ function loadValidators() {
   const plutusJson = JSON.parse(fs.readFileSync(plutusJsonPath, 'utf8'));
   
   const spendValidator = plutusJson.validators.find(
-    (v: any) => v.title === 'adaverc_registry.adaverc_registry.spend'
+    (v: any) => v.title === 'notamperdata_registry.notamperdata_registry.spend'
   );
   
   if (!spendValidator) {
-    throw new Error('Adaverc registry spend validator not found in plutus.json');
+    throw new Error('notamperdata registry spend validator not found in plutus.json');
   }
   
   return {
@@ -135,9 +135,9 @@ function saveDeploymentOutput(output: DeploymentOutput): void {
 }
 
 // Main deployment function
-async function deployAdavercRegistry(): Promise<DeploymentOutput> {
+async function deploynotamperdataRegistry(): Promise<DeploymentOutput> {
   try {
-    console.log('🚀 Starting Adaverc Registry deployment...');
+    console.log('🚀 Starting notamperdata Registry deployment...');
     
     // Load configuration and validators
     const config = loadConfig();
@@ -147,7 +147,7 @@ async function deployAdavercRegistry(): Promise<DeploymentOutput> {
     
     // Initialize Lucid
     const lucid = await initLucid(config);
-    const adavercValidator = createValidator(validators.compiledCode);
+    const notamperdataValidator = createValidator(validators.compiledCode);
     
     // Get network from config - this is the fix for the original error
     const network = configNetworkToLucidNetwork(config.network);
@@ -155,7 +155,7 @@ async function deployAdavercRegistry(): Promise<DeploymentOutput> {
     // Use the validatorToAddress function with the correct parameters
     const contractAddress = validatorToAddress(
       network,
-      adavercValidator as SpendingValidator
+      notamperdataValidator as SpendingValidator
     );
     
     console.log(`📋 Contract Address: ${contractAddress}`);
@@ -209,7 +209,7 @@ async function main() {
   
   if (args.includes('--help') || args.includes('-h')) {
     console.log(`
-Adaverc Smart Contract Deployment Script
+notamperdata Smart Contract Deployment Script
 
 Usage:
   npm run deploy
@@ -226,7 +226,7 @@ Example:
   }
   
   try {
-    await deployAdavercRegistry();
+    await deploynotamperdataRegistry();
   } catch (error) {
     console.error('💥 Deployment failed:', error);
     process.exit(1);
@@ -238,4 +238,4 @@ if (require.main === module) {
   main();
 }
 
-export { deployAdavercRegistry, DeploymentOutput };
+export { deploynotamperdataRegistry, DeploymentOutput };

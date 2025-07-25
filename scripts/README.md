@@ -1,6 +1,6 @@
-# Adaverc Smart Contract Deployment
+# notamperdata Smart Contract Deployment
 
-This directory contains the deployment script for the Adaverc smart contract.
+This directory contains the deployment script for the notamperdata smart contract.
 
 ## Prerequisites
 

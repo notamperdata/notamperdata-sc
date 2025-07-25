@@ -1,14 +1,14 @@
 {
-  "name": "adaverc-deployment-scripts",
+  "name": "notamperdata-deployment-scripts",
   "version": "1.0.0",
-  "description": "Deployment scripts for Adaverc smart contracts",
+  "description": "Deployment scripts for notamperdata smart contracts",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "deploy": "ts-node src/deploy-adaverc.ts",
-    "deploy:preview": "CARDANO_NETWORK=Preview ts-node src/deploy-adaverc.ts",
-    "deploy:preprod": "CARDANO_NETWORK=Preprod ts-node src/deploy-adaverc.ts",
-    "deploy:mainnet": "CARDANO_NETWORK=Mainnet ts-node src/deploy-adaverc.ts"
+    "deploy": "ts-node src/deploy-notamperdata.ts",
+    "deploy:preview": "CARDANO_NETWORK=Preview ts-node src/deploy-notamperdata.ts",
+    "deploy:preprod": "CARDANO_NETWORK=Preprod ts-node src/deploy-notamperdata.ts",
+    "deploy:mainnet": "CARDANO_NETWORK=Mainnet ts-node src/deploy-notamperdata.ts"
   },
   "keywords": [
     "cardano",
