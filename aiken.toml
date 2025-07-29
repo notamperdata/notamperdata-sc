@@ -1,13 +1,13 @@
-name = "ndigirigijohn/notamperdata-sc"
+name = "ndigirigijohn/NoTamperData-sc"
 version = "0.0.0"
 compiler = "v1.1.15"
 plutus = "v3"
 license = "Apache-2.0"
-description = "Aiken contracts for project 'ndigirigijohn/notamperdata-sc'"
+description = "Aiken contracts for project 'ndigirigijohn/NoTamperData-sc'"
 
 [repository]
 user = "ndigirigijohn"
-project = "notamperdata-sc"
+project = "NoTamperData-sc"
 platform = "github"
 
 [[dependencies]]

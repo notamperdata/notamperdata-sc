@@ -1,14 +1,14 @@
 {
-  "name": "notamperdata-deployment-scripts",
+  "name": "NoTamperData-deployment-scripts",
   "version": "1.0.0",
-  "description": "Deployment scripts for notamperdata smart contracts",
+  "description": "Deployment scripts for NoTamperData smart contracts",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "deploy": "ts-node src/deploy-notamperdata.ts",
-    "deploy:preview": "CARDANO_NETWORK=Preview ts-node src/deploy-notamperdata.ts",
-    "deploy:preprod": "CARDANO_NETWORK=Preprod ts-node src/deploy-notamperdata.ts",
-    "deploy:mainnet": "CARDANO_NETWORK=Mainnet ts-node src/deploy-notamperdata.ts"
+    "deploy": "ts-node src/deploy-NoTamperData.ts",
+    "deploy:preview": "CARDANO_NETWORK=Preview ts-node src/deploy-NoTamperData.ts",
+    "deploy:preprod": "CARDANO_NETWORK=Preprod ts-node src/deploy-NoTamperData.ts",
+    "deploy:mainnet": "CARDANO_NETWORK=Mainnet ts-node src/deploy-NoTamperData.ts"
   },
   "keywords": [
     "cardano",

@@ -1,17 +1,17 @@
-# notamperdata Smart Contract Documentation
+# NoTamperData Smart Contract Documentation
 
 ## Overview
 
-The notamperdata smart contract (`notamperdata_registry`) provides blockchain-based verification for Google Forms responses through immutable hash storage on the Cardano blockchain. The contract leverages Cardano's metadata capabilities and UTxO model to create verifiable proof of form response integrity while maintaining cost efficiency and extensibility for enterprise features.
+The NoTamperData smart contract (`NoTamperData_registry`) provides blockchain-based verification for Google Forms responses through immutable hash storage on the Cardano blockchain. The contract leverages Cardano's metadata capabilities and UTxO model to create verifiable proof of form response integrity while maintaining cost efficiency and extensibility for enterprise features.
 
 ## Contract Architecture
 
 ### Validator Implementation
 
-The `notamperdata_registry` validator is implemented in Aiken and provides the foundation for blockchain-based form response verification:
+The `NoTamperData_registry` validator is implemented in Aiken and provides the foundation for blockchain-based form response verification:
 
 ```aiken
-validator notamperdata_registry {
+validator NoTamperData_registry {
   spend(
     _datum: Option<Data>,
     _redeemer: Data,

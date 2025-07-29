@@ -1,4 +1,4 @@
-// scripts/src/deploy-notamperdata.ts
+// scripts/src/deploy-NoTamperData.ts
 import * as fs from 'fs';
 import * as path from 'path';
 import { 
@@ -68,11 +68,11 @@ function loadValidators() {
   const plutusJson = JSON.parse(fs.readFileSync(plutusJsonPath, 'utf8'));
   
   const spendValidator = plutusJson.validators.find(
-    (v: any) => v.title === 'notamperdata_registry.notamperdata_registry.spend'
+    (v: any) => v.title === 'NoTamperData_registry.NoTamperData_registry.spend'
   );
   
   if (!spendValidator) {
-    throw new Error('notamperdata registry spend validator not found in plutus.json');
+    throw new Error('NoTamperData registry spend validator not found in plutus.json');
   }
   
   return {
@@ -135,9 +135,9 @@ function saveDeploymentOutput(output: DeploymentOutput): void {
 }
 
 // Main deployment function
-async function deploynotamperdataRegistry(): Promise<DeploymentOutput> {
+async function deployNoTamperDataRegistry(): Promise<DeploymentOutput> {
   try {
-    console.log('🚀 Starting notamperdata Registry deployment...');
+    console.log('🚀 Starting NoTamperData Registry deployment...');
     
     // Load configuration and validators
     const config = loadConfig();
@@ -147,7 +147,7 @@ async function deploynotamperdataRegistry(): Promise<DeploymentOutput> {
     
     // Initialize Lucid
     const lucid = await initLucid(config);
-    const notamperdataValidator = createValidator(validators.compiledCode);
+    const NoTamperDataValidator = createValidator(validators.compiledCode);
     
     // Get network from config - this is the fix for the original error
     const network = configNetworkToLucidNetwork(config.network);
@@ -155,7 +155,7 @@ async function deploynotamperdataRegistry(): Promise<DeploymentOutput> {
     // Use the validatorToAddress function with the correct parameters
     const contractAddress = validatorToAddress(
       network,
-      notamperdataValidator as SpendingValidator
+      NoTamperDataValidator as SpendingValidator
     );
     
     console.log(`📋 Contract Address: ${contractAddress}`);
@@ -209,7 +209,7 @@ async function main() {
   
   if (args.includes('--help') || args.includes('-h')) {
     console.log(`
-notamperdata Smart Contract Deployment Script
+NoTamperData Smart Contract Deployment Script
 
 Usage:
   npm run deploy
@@ -226,7 +226,7 @@ Example:
   }
   
   try {
-    await deploynotamperdataRegistry();
+    await deployNoTamperDataRegistry();
   } catch (error) {
     console.error('💥 Deployment failed:', error);
     process.exit(1);
@@ -238,4 +238,4 @@ if (require.main === module) {
   main();
 }
 
-export { deploynotamperdataRegistry, DeploymentOutput };
+export { deployNoTamperDataRegistry, DeploymentOutput };

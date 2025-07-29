@@ -1,6 +1,6 @@
-# notamperdata Smart Contract Deployment
+# NoTamperData Smart Contract Deployment
 
-This directory contains the deployment script for the notamperdata smart contract.
+This directory contains the deployment script for the NoTamperData smart contract.
 
 ## Prerequisites
 
